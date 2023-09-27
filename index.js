@@ -13,9 +13,9 @@ mongoose.connect(process.env.MONGODB_URL,{
   });
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
-  console.log('Connected to MongoDB!')
+ 
 });
 
 // Define a schema and model for your data
@@ -43,7 +43,7 @@ app.post('/api/comments', async (req, res) => {
 
     res.status(201).json({ message: 'Comment saved successfully!' });
   } catch (err) {
-    console.error('Error saving comment:', err);
+   
     res.status(500).json({ error: 'Something went wrong!'});
   }
 
@@ -116,5 +116,5 @@ app.post('/api/submit', upload.single('resume'), async (req, res) => {
   }
 });
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+  
 });
